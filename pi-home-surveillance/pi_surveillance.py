@@ -8,7 +8,7 @@ from picamera import PiCamera
 import argparse
 import warnings
 import datetime
-import dropbox
+#import dropbox
 import imutils
 import json
 import time
@@ -24,13 +24,13 @@ args = vars(ap.parse_args())
 # client
 warnings.filterwarnings("ignore")
 conf = json.load(open(args["conf"]))
-client = None
+#client = None
 
 # check to see if the Dropbox should be used
-if conf["use_dropbox"]:
+#if conf["use_dropbox"]:
 	# connect to dropbox and start the session authorization process
-	client = dropbox.Dropbox(conf["dropbox_access_token"])
-	print("[SUCCESS] dropbox account linked")
+#	client = dropbox.Dropbox(conf["dropbox_access_token"])
+#	print("[SUCCESS] dropbox account linked")
 
 # initialize the camera and grab a reference to the raw camera capture
 camera = PiCamera()
@@ -55,7 +55,7 @@ for f in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True
 	text = "Unoccupied"
 
 	# resize the frame, convert it to grayscale, and blur it
-	frame = imutils.resize(frame, width=500)
+	frame = imutils.resize(frame, width=conf["resolution"][1])
 	gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 	gray = cv2.GaussianBlur(gray, (21, 21), 0)
 
@@ -136,6 +136,8 @@ for f in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True
 	if conf["show_video"]:
 		# display the security feed
 		cv2.imshow("Security Feed", frame)
+        cv2.imshow("Tresh", thres)
+        cv2.imshow("Frame Delta", frameDelta)
 		key = cv2.waitKey(1) & 0xFF
 
 		# if the `q` key is pressed, break from the lop
