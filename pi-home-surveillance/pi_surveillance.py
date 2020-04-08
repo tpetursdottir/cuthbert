@@ -34,6 +34,7 @@ conf = json.load(open(args["conf"]))
 
 # initialize the camera and grab a reference to the raw camera capture
 camera = PiCamera()
+camera.rotation = 180
 camera.resolution = tuple(conf["resolution"])
 camera.framerate = conf["fps"]
 rawCapture = PiRGBArray(camera, size=tuple(conf["resolution"]))
@@ -136,8 +137,6 @@ for f in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True
 	if conf["show_video"]:
 		# display the security feed
 		cv2.imshow("Security Feed", frame)
-        cv2.imshow("Tresh", thres)
-        cv2.imshow("Frame Delta", frameDelta)
 		key = cv2.waitKey(1) & 0xFF
 
 		# if the `q` key is pressed, break from the lop
