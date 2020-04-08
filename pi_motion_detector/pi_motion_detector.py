@@ -26,7 +26,6 @@ conf = json.load(open(args["conf"]))
 
 # initialize the camera and grab a reference to the raw camera capture
 camera = PiCamera()
-camera.rotation = 180
 camera.resolution = tuple(conf["resolution"])
 camera.framerate = conf["fps"]
 rawCapture = PiRGBArray(camera, size=tuple(conf["resolution"]))
@@ -84,11 +83,11 @@ for f in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True
 		# and update the text
 		(x, y, w, h) = cv2.boundingRect(c)
 		cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-		text = "Occupied"
+		text = "Movement"
 
 	# draw the text and timestamp on the frame
 	ts = timestamp.strftime("%A %d %B %Y %I:%M:%S%p")
-	cv2.putText(frame, "Room Status: {}".format(text), (10, 20),
+	cv2.putText(frame, "Status: {}".format(text), (10, 20),
 		cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
 	cv2.putText(frame, ts, (10, frame.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX,
 		0.35, (0, 0, 255), 1)
