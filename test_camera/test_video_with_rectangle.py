@@ -43,7 +43,7 @@ for f in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True
         continue
         
     # draw rectangle as reference on video
-    cv2.rectangle(frame,(350,80),(500,120),(0,255,0),3)
+    cv2.rectangle(frame,(450,180),(600,220),(0,255,0),2)
     
     # draw the text and timestamp on the frame
     ts = timestamp.strftime("%A %d %B %Y %I:%M:%S%p")
