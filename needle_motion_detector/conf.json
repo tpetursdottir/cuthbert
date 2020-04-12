@@ -1,0 +1,8 @@
+{
+	"camera_warmup_time": 2.5,
+    "resolution": [1280, 720],
+    "upper_left": [450, 180],
+    "bottom_right": [600, 220],
+    "fps": 30,
+   	"min_area": 10
+}
