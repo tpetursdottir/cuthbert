@@ -17,6 +17,8 @@ ap.add_argument("-c", "--conf", required=True,
     help="path to the JSON configuration file")
 args = vars(ap.parse_args())
 
+conf = json.load(open(args["conf"]))
+
 # initialize the camera and grab a reference to the raw camera capture
 camera = PiCamera()
 camera.resolution = tuple(conf["resolution"])
@@ -91,6 +93,9 @@ for f in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True
 
     # display the security feed
     cv2.imshow("Cuthbert camera", frame)
+    cv2.imshow("Thresh", thresh)
+    cv2.imshow("Frame Delta", frameDelta)
+    
     key = cv2.waitKey(1) & 0xFF
 
     # if the `q` key is pressed, break from the lop
