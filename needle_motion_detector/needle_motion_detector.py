@@ -93,9 +93,7 @@ for f in camera.capture_continuous(rawCapture, format="bgr", use_video_port=True
 
     # display the security feed
     cv2.imshow("Cuthbert camera", frame)
-    cv2.imshow("Thresh", thresh)
-    cv2.imshow("Frame Delta", frameDelta)
-    
+
     key = cv2.waitKey(1) & 0xFF
 
     # if the `q` key is pressed, break from the lop
