@@ -1,5 +1,6 @@
 # USAGE
-# python pi_surveillance.py --conf conf.json
+# python needle_motion_detector.py --conf conf.json
+# python needle_motion_detector.py --conf conf_low_res.json
 
 # import the necessary packages
 from picamera.array import PiRGBArray

@@ -1,3 +1,6 @@
+# USAGE
+# python test_draw_contour.py --image 'Image_screenshot_08.04.2020.png'
+
 # import the necessary packages
 import argparse
 import imutils

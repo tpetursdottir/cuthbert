@@ -1,5 +1,5 @@
 # USAGE
-# python pi_surveillance.py --conf conf.json
+# python test_video_with_rectangle.py
 
 # import the necessary packages
 from picamera.array import PiRGBArray

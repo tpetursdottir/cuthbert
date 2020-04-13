@@ -1,8 +1,7 @@
 # USAGE
-# python pi_surveillance.py --conf conf.json
+# python pi_motion_detector.py --conf conf.json
 
 # import the necessary packages
-from pyimagesearch.tempimage import TempImage
 from picamera.array import PiRGBArray
 from picamera import PiCamera
 import argparse
