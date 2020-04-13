@@ -1,9 +1,9 @@
 {
-	"camera_warmup_time": 2.5,
-	"delta_thresh": 5,
+    "camera_warmup_time": 2.5,
+    "delta_thresh": 5,
     "resolution": [720, 480],
-    "upper_left": [450, 180],
-    "bottom_right": [600, 220],
+    "upper_left": [380, 80],
+    "bottom_right": [505, 115],
     "fps": 30,
-   	"min_area": 10
+    "min_area": 10
 }
